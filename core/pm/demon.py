@@ -4,20 +4,28 @@ import time                     # подключение библиотеки д
 IO.setwarnings(False)           #отключаем показ любых предупреждений
 IO.setmode (IO.BCM)             # мы будем программировать контакты GPIO по их функциональным номерам (BCM), то есть мы будем обращаться к PIN39 как ‘GPIO19’
 IO.setup(23,IO.OUT)
-IO.setup(17,IO.OUT)
+# IO.setup(17,IO.OUT)
 IO.setup(16,IO.OUT)              # инициализируем GPIO19 в качестве цифрового выхода
 IO.setup(26,IO.IN)              # инициализируем GPIO26 в качестве цифрового входа
 while 1:                        #бесконечный цикл
-    if(IO.input(26) == False):  #если на GPIO26 уровень low то выполняем следующую команду
-        IO.output(23,True)    # включаем светодиод (LED on) при помощи подачи уровня HIGH на контакт, к которому он подключен
-        time.sleep(1)        # задержка на 100 мс
+    if(IO.input(26) == False):  
+        IO.output(23,True)
+        time.sleep(1)
         IO.output(23,False)
         time.sleep(0.11)
-        IO.output(17,True)    # включаем светодиод (LED on) при помощи подачи уровня HIGH на контакт, к которому он подключен
-        time.sleep(1)        # задержка на 100 мс
-        IO.output(17,False)
-        time.sleep(0.11)
-        IO.output(16,True)    # включаем светодиод (LED on) при помощи подачи уровня HIGH на контакт, к которому он подключен
-        time.sleep(1)        # задержка на 100 мс
-        IO.output(16,False)     # выключаем светодиод (LED off) при помощи подачи на GPIO19 уровня low
-        time.sleep(1)           #задержка на 1 секунду
+        IO.output(16,True)
+        time.sleep(0.5)
+        IO.output(16,False)
+        time.sleep(0.5)
+        IO.output(16,True)
+        time.sleep(0.5)
+        IO.output(16,False)
+        time.sleep(0.5)
+        IO.output(16,True)
+        time.sleep(0.5)
+        IO.output(16,False)
+        time.sleep(0.5)
+        IO.output(16,True)
+        time.sleep(0.5)
+        IO.output(16,False)
+        time.sleep(1)
