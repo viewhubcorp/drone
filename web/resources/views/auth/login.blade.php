@@ -108,7 +108,7 @@
             </div>
             @enderror
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login', [], false) }}">
                 @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="username" required placeholder="Пользователь" autocomplete="off">
