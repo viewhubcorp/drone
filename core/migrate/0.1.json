@@ -1,0 +1,23 @@
+{
+  "description": "Установщик \n - Установка базовых компонентов",
+  "step": [
+    {
+      "text": "Создаем базу данных",
+      "script": "touch /home/pi/drone/storage.sqlite"
+    },
+    {
+      "text": "Установка зависимостей для WEB",
+      "script": "cd /home/pi/drone/web && composer i"
+    },
+    {
+      "text": "Установка зависимостей для NODE",
+      "script": "cd /home/pi/drone/web && npm i"
+    },
+    {
+      "text": "",
+
+    }
+  ]
+
+
+}

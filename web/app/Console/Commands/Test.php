@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Transaction;
 use Illuminate\Console\Command;
+use Pay\WayForPay\WFP;
 
 class Test extends Command
 {
@@ -37,72 +39,31 @@ class Test extends Command
      */
     public function handle()
     {
-        dd($this->parseScanDev("wlan1"));
-    }
-
-    function iwlist_parser(){
-    }
-
-    function parseString( $string ){
-        if(empty($string)) return false;
-
-        // Rueckgabe dieser Funktion:
-        // $array[device][Cell#][Cell-Feld] = Wert
-        // z.b. $array[eth0][1][ESSID] = "MGees_WLan"
-
-        $ergebnis = array();
-
-        $string = explode( "\n", $string );
-
-        $device = $cell = "";
-
-        foreach($string as $zeile){
-            if(substr( $zeile, 0, 1 ) != ' '){
-                $device = substr($zeile, 0, strpos($zeile, ' '));
-                $ergebnis[$device] = array();
-            }
-            else{
-                $zeile = trim($zeile);
-                // Zeile kann sein:
-                // Cell ## - Address: Wert
-                // Feld:Wert
-                // Quality=bla Signal Level=bla2
-                if(substr($zeile, 0, 5) == 'Cell '){
-                    $cell = (int)substr($zeile, 5, 2);
-                    $ergebnis[$device][$cell] = array();
-                    $doppelp_pos = strpos($zeile, ':');
-                    $ergebnis[$device][$cell]['Address'] =
-                        trim(substr($zeile, $doppelp_pos + 1));
-                }
-                elseif(substr($zeile, 0, 8) == 'Quality='){
-                    $first_eq_pos = strpos($zeile, '=');
-                    $last_eq_pos = strrpos($zeile, '=');
-                    $slash_pos = strpos($zeile, '/') - $first_eq_pos;
-                    $ergebnis[$device][$cell]['Quality'] =
-                        trim(substr($zeile, $first_eq_pos + 1, $slash_pos - 1));
-                    $ergebnis[$device][$cell]['Signal level'] =
-                        trim(substr($zeile, $last_eq_pos + 1));
-                }
-                else{
-                    $doppelp_pos = strpos($zeile, ':');
-                    $feld = trim( substr( $zeile, 0, $doppelp_pos ) );
-                    if(!empty($ergebnis[$device][$cell][$feld]))
-                        $ergebnis[$device][$cell][$feld] .= "\n";
-                    // Leer- und "-Zeichen rausschmeissen - ESSID steht immer in ""
-                    @$ergebnis[$device][$cell][$feld] .=
-                        trim(str_replace('"', '', substr($zeile, $doppelp_pos + 1)));
-                }
-            }
+        $parse = 'string:2|print|treck:8|chest|dd|chest:1';
+        $print = explode('|', $parse);
+        $fin = [];
+        foreach ($print as $pr){
+            $fin[] = explode(':', $pr);
         }
-        return $ergebnis;
-    }
+        dd($fin);
 
-    function parseScanAll(){
-        return $this -> parseString( shell_exec( "iwlist scan 2> /dev/null" ));
-    }
+        $pay = new \App\WayForPay\WFP('10.00', 'USD');
+        $pay_url = $pay->create();
+        $pay_id = $pay->getId();
+        dd($pay, $pay_url, $pay_id);
+        
+        if(isset($pay['invoiceUrl'])){
+            $transaction = new \App\Transaction();
+            $transaction->pay_identity = $pay_id;
+            $transaction->user_id = $this->session->id();
+            $transaction->sum = $sum;
+            $transaction->save();
 
-    function parseScanDev( $device ){
-        return $this -> parseString( shell_exec( "sudo iwlist ".$device." scan 2> /dev/null" ));
+            return $this->send([
+                'pay_url' => $pay_url['invoiceUrl']
+            ]);
+        }else{
+            return $this->err();
+        }
     }
-
 }
