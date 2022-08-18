@@ -489,15 +489,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             @yield('content')
 
-                <td class="project_progress">
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%">
-                        </div>
-                    </div>
-                    <small>
-                        47% Complete
-                    </small>
-                </td>
         </div>
         <!-- /.content -->
     </div>
