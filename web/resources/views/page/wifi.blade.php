@@ -21,22 +21,22 @@
                 <table class="table table-striped projects">
                     <thead>
                     <tr>
-                        <th style="width: 1%">
+                        <th>
                             #
                         </th>
-                        <th style="width: 20%">
+                        <th>
                             ESSID / MAC
                         </th>
-                        <th style="width: 30%">
+                        <th>
                             Инфо
                         </th>
                         <th>
                             Качество сигнала
                         </th>
-                        <th style="width: 8%" class="text-center">
+                        <th class="text-center">
                             Пароль
                         </th>
-                        <th style="width: 20%">
+                        <th>
                         </th>
                     </tr>
                     </thead>
@@ -84,7 +84,7 @@
                             <a class="btn btn-danger btn-sm" href="#">
                                 <i class="fas fa-trash">
                                 </i>
-                                Забыть сеть
+                                Забыть
                             </a>
                         </td>
                     </tr>
