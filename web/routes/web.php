@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
-Route::get('/settings/wifi', 'Setting@wifi')->name('setting.wifi_page');
+Route::get('/settings/wifi', 'Setting@wifi_page')->name('setting.wifi_page');
 Route::get('/login/drone', 'HomeController@log')->name('log');
 
 Route::get('/', 'HomeController@index')->name('home');
