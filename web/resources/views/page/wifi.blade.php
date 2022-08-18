@@ -43,60 +43,48 @@
                     <tbody>
                     <tr>
                         <td>
-                            #
+                            1
                         </td>
                         <td>
                             <a>
-                                AdminLTE v3
+                                Dikiy_derzkiy
                             </a>
                             <br>
                             <small>
-                                Created 01.01.2019
+                                C0:C9:E3:3A:59:1D
                             </small>
                         </td>
                         <td>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                                </li>
-                                <li class="list-inline-item">
-                                    <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                                </li>
-                                <li class="list-inline-item">
-                                    <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                                </li>
-                                <li class="list-inline-item">
-                                    <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                                </li>
-                            </ul>
+                            <small>
+                                2.457 GHz (Channel 10)
+                            </small>
+                            <br>
+                            <small>
+                                Signal level: -15 dBm
+                            </small>
                         </td>
                         <td class="project_progress">
                             <div class="progress progress-sm">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
+                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                 </div>
                             </div>
                             <small>
-                                57% Complete
+                                Качество - 100%
                             </small>
                         </td>
                         <td class="project-state">
-                            <span class="badge badge-success">Success</span>
+                            <span class="badge badge-success">Да</span>
                         </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="#">
                                 <i class="fas fa-folder">
                                 </i>
-                                View
-                            </a>
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
+                                Подключитсься
                             </a>
                             <a class="btn btn-danger btn-sm" href="#">
                                 <i class="fas fa-trash">
                                 </i>
-                                Delete
+                                Забыть сеть
                             </a>
                         </td>
                     </tr>
