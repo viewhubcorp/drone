@@ -47,7 +47,7 @@
                         </td>
                         <td>
                             <a>
-                                Dikiy_derzkiy
+                                <b>Dikiy_derzkiy</b>
                             </a>
                             <br>
                             <small>
@@ -73,11 +73,11 @@
                             </small>
                         </td>
                         <td class="project-state">
-                            <span class="badge badge-success">Да</span>
+                            <span class="badge badge-success">Есть</span>
                         </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
+                                <i class="fas fa-wifi">
                                 </i>
                                 Подключитсься
                             </a>
