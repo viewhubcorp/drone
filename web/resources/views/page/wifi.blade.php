@@ -6,16 +6,16 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Projects</h3>
+                <h3 class="card-title">Доступные сети Wi-Fi</h3>
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+{{--                <div class="card-tools">--}}
+{{--                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">--}}
+{{--                        <i class="fas fa-minus"></i>--}}
+{{--                    </button>--}}
+{{--                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">--}}
+{{--                        <i class="fas fa-times"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
             </div>
             <div class="card-body p-0" style="display: block;">
                 <table class="table table-striped projects">
@@ -25,16 +25,16 @@
                             #
                         </th>
                         <th style="width: 20%">
-                            Project Name
+                            ESSID / MAC
                         </th>
                         <th style="width: 30%">
-                            Team Members
+                            Инфо
                         </th>
                         <th>
-                            Project Progress
+                            Качество сигнала
                         </th>
                         <th style="width: 8%" class="text-center">
-                            Status
+                            Пароль
                         </th>
                         <th style="width: 20%">
                         </th>
