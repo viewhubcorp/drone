@@ -66,7 +66,7 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ceil(100/70*$wifi['Quality'])}}" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ceil(100/70*$wifi['Quality'])}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ceil(100/70*$wifi['Quality'])}}%">
                                         </div>
                                     </div>
                                     <small>
