@@ -44,7 +44,7 @@
                         @foreach($network as $number => $wifi)
                             <tr>
                                 <td>
-                                    {{$number}}
+                                    {{$number+1}}
                                 </td>
                                 <td>
                                     <a>
