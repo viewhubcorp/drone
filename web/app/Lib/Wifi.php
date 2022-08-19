@@ -57,6 +57,6 @@ class Wifi {
     }
 
     public function parseScanDev( $device ){
-        return $this -> parseString( shell_exec( "sudo iwlist ".$device." scan 2> /dev/null" ));
+        return $this -> parseString( shell_exec( "sudo iwlist ".$device." scan" ));
     }
 }
