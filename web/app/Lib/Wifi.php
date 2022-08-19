@@ -3,7 +3,6 @@ namespace App\Lib;
 
 class Wifi {
     private function parseString( $string ){
-        dd($string);
         if(empty($string)) return false;
 
         // Rueckgabe dieser Funktion:
