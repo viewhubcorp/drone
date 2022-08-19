@@ -66,11 +66,11 @@
                                 </td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ceil(70/100*$wifi['Quality'])}}" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ceil(100/70*$wifi['Quality'])}}" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                         </div>
                                     </div>
                                     <small>
-                                        {{ceil(70/100*$wifi['Quality'])}}%
+                                        {{ceil(100/70*$wifi['Quality'])}}%
                                     </small>
                                 </td>
                                 <td class="project-state">
