@@ -256,7 +256,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                          with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('telemetry', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Телеметрия
@@ -265,7 +265,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('stat', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 Статистика
@@ -274,7 +274,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('storage', $main_menu)) active @endif">
                             <i class="nav-icon far fa-folder-open"></i>
                             <p>
                                 Хранилище
@@ -283,7 +283,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('log', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
                                 Логи
@@ -292,30 +292,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                     <li class="nav-item menu-is-opening menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link @if(isset($main_menu) && in_array('setting', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
                                 Настройки
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview" style="display: block;">
+                        <ul class="nav nav-treeview" style="@if(isset($main_menu) && in_array('setting', $main_menu)) display: block; @else display: none; @endif">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('account', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>Аккаунты</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('link', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-signal"></i>
                                     <p>Связь</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('wifi', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-wifi"></i>
                                     <p>Подключение к Wi-Fi</p>
                                 </a>
@@ -323,7 +323,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('update', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-download"></i>
                                     <p>Обновление ПО</p>
                                 </a>
@@ -331,19 +331,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('drone_setting', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-space-shuttle"></i>
                                     <p>Настройка дрона</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
+                                <a href="./index2.html" class="nav-link @if(isset($main_menu) && in_array('broadcast', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-camera"></i>
                                     <p>Трансляция видео</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./index3.html" class="nav-link active">
+                                <a href="./index3.html" class="nav-link @if(isset($main_menu) && in_array('storage_setting', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-database"></i>
                                     <p>Хранилище</p>
                                 </a>
@@ -373,7 +373,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 {{--                    @endif--}}
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('terminal', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-terminal"></i>
                             <p>
                                 Консоль
@@ -383,7 +383,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('scripts', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-code"></i>
                             <p>
                                 Скрипты
@@ -393,7 +393,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                     <li class="nav-item">
-                        <a href="{{route('azs_operator', [], false)}}" class="nav-link">
+                        <a href="{{route('azs_operator', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('info', $main_menu)) active @endif">
                             <i class="nav-icon fas fa-info-circle"></i>
                             <p>
                                 Информация

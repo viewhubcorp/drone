@@ -79,7 +79,7 @@
                             <a class="btn btn-primary btn-sm" href="#">
                                 <i class="fas fa-wifi">
                                 </i>
-                                Подключитсься
+                                Подключиться
                             </a>
                             <a class="btn btn-danger btn-sm" href="#">
                                 <i class="fas fa-trash">
