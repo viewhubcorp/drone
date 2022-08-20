@@ -17,7 +17,10 @@ class Setting extends Controller
         }
         $check_connection = (new Wifi())->check_connection();
         $get_wpa_supplicant = (new Wifi())->get_wpa_supplicant();
-        $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
+        $network = (new Wifi())->parseScanDev('wlan1');
+        if(is_array($network)){
+            $network = $network['wlan1'];
+        }
         if($network) {
             foreach ($network as $key => $wifi) {
                 if ($get_wpa_supplicant && $get_wpa_supplicant['bssid'] == $wifi['Address']) {
