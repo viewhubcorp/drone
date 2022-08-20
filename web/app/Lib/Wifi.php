@@ -65,7 +65,7 @@ class Wifi {
     }
 
     public function clean_wpa_supplicant(){
-        return shell_exec( 'echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf' );
+        return shell_exec( 'echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\ncountry=RU" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf' );
     }
 
     public function get_wpa_supplicant(){
