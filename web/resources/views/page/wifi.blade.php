@@ -30,10 +30,9 @@
 
         @if($wpa_supplicant)
         <div class="callout callout-danger">
-            <h5>{{$wpa_supplicant['essid']}}</h5>
+            <h5>Текущее подключение</h5>
 
-            <p>{{$wpa_supplicant['bssid']}}</p>
-            {{$check_connection}}
+            <p>{{$wpa_supplicant['essid']}} - {{$wpa_supplicant['bssid']}}</p>
 
             <p><span class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) ПОДКЛЮЧЕНО @else Попытка подключения @endif</span></p>
             <p>
