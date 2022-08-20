@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<br>
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Введите пароль от - {{$essid}}</h3>

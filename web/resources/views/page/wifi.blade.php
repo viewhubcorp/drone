@@ -118,16 +118,27 @@
                                     @endif
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="{{route('setting.wifi_bssid', ['bssid'=>str_replace(":", "1", $wifi['Address']), false])}}">
-                                        <i class="fas fa-wifi">
-                                        </i>
-                                        Подключиться
-                                    </a>
+                                    @if($wifi['now_connect'])
+                                        <a class="btn btn-secondary btn-sm" href="{{route('setting.wifi_disconnect', [], false)}}">
+                                            <i class="fas fa-wifi">
+                                            </i>
+                                            Отключиться
+                                        </a>
+                                    @else
+                                        <a class="btn btn-primary btn-sm" href="{{route('setting.wifi_bssid', ['bssid'=>str_replace(":", "1", $wifi['Address']), false])}}">
+                                            <i class="fas fa-wifi">
+                                            </i>
+                                            Подключиться
+                                        </a>
+                                    @endif
+
+                                    @if($wifi['save_connect'])
                                     <a class="btn btn-danger btn-sm" href="#">
                                         <i class="fas fa-trash">
                                         </i>
                                         Забыть
                                     </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

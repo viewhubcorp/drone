@@ -18,6 +18,20 @@ class Setting extends Controller
         $check_connection = (new Wifi())->check_connection();
         $get_wpa_supplicant = (new Wifi())->get_wpa_supplicant();
         $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
+        foreach($network as $key=>$wifi){
+            if($get_wpa_supplicant && $get_wpa_supplicant['bssid'] == $wifi['Address']){
+                $network[$key]['now_connect'] = true;
+            }else{
+                $network[$key]['now_connect'] = false;
+            }
+
+            $check = \App\Wifi::where('bssid', $wifi['Address'])->first();
+            if(!is_null($check)){
+                $network[$key]['save_connect'] = true;
+            }else{
+                $network[$key]['save_connect'] = false;
+            }
+        }
         return view('page.wifi', [
             'main_menu'=>['setting', 'wifi'],
             'wpa_supplicant'=>$get_wpa_supplicant,
@@ -33,6 +47,13 @@ class Setting extends Controller
         $bssid[8]=':';
         $bssid[11]=':';
         $bssid[14]=':';
+
+        $check = \App\Wifi::where('bssid', $bssid)->first();
+        if(!is_null($check)){
+            (new Wifi())->add_wpa_supplicant($check->essid, $check->bssid, $check->psk);
+            (new Wifi())->wifi_reload();
+            return redirect()->route('setting.wifi_page');
+        }
 
         $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
         $essid = '';
