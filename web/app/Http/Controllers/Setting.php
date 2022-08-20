@@ -31,6 +31,10 @@ class Setting extends Controller
             }else{
                 $network[$key]['save_connect'] = false;
             }
+
+            if($wifi['ESSID'] == '' || $wifi['Encryption key'] != 'on'){
+                unset($network[$key]);
+            }
         }
         return view('page.wifi', [
             'main_menu'=>['setting', 'wifi'],
