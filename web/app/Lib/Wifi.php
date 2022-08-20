@@ -88,7 +88,9 @@ class Wifi {
         if(empty($ret)){
             return '';
         }else{
-            return rtrim(explode('ESSID:"', $ret)[1],'"');
+            $fin = explode('ESSID:"', $ret)[1];
+            unset($fin[count($fin)-1]);
+            return $fin;
         }
     }
 
