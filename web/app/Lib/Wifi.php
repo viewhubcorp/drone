@@ -82,10 +82,6 @@ class Wifi {
         }
     }
 
-    public function reload_network(){
-        return shell_exec( 'sudo wpa_cli -i wlan1 reconfigure' );
-    }
-
     public function check_connection(){
         return shell_exec( 'sudo iwgetid' );
     }

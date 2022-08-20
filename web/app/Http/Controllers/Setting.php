@@ -55,4 +55,18 @@ class Setting extends Controller
 
         dd($bssid);
     }
+
+    public function wifi_connect(Request $req){
+        $wifi = new \App\Wifi();
+        $wifi->bssid = $req->get('bssid');
+        $wifi->essid = $req->get('essid');
+        $wifi->psk = $req->get('psk');
+        $wifi->connect = true;
+        $wifi->save();
+
+        (new Wifi())->add_wpa_supplicant($req->get('essid'), $req->get('bssid'), $req->get('psk'));
+        (new Wifi())->wifi_reload();
+
+        return redirect()->route('setting.wifi_page');
+    }
 }
