@@ -81,7 +81,7 @@
                                     @endif
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                    <a class="btn btn-primary btn-sm" href="{{route('setting.wifi_bssid', ['bssid'=>str_replace(":", "1", $wifi['Address']), false])}}">
                                         <i class="fas fa-wifi">
                                         </i>
                                         Подключиться
