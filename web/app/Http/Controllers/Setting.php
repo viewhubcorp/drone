@@ -9,11 +9,21 @@ class Setting extends Controller
 {
     public function wifi_page(Request $req){
         $wifi_status = (new Wifi())->wifi_status();
+        if(!$wifi_status){
+            return view('page.wifi', [
+                'main_menu'=>['setting', 'wifi'],
+                'wifi'=>false
+            ]);
+        }
         $check_connection = (new Wifi())->check_connection();
         $get_wpa_supplicant = (new Wifi())->get_wpa_supplicant();
+        $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
         return view('page.wifi', [
             'main_menu'=>['setting', 'wifi'],
-            'network'=>(new Wifi())->parseScanDev('wlan1')['wlan1']
+            'wpa_supplicant'=>$get_wpa_supplicant,
+            'check_connection'=>$check_connection,
+            'network'=>$network,
+            'wifi'=>true
         ]);
     }
 
@@ -23,6 +33,26 @@ class Setting extends Controller
         $bssid[8]=':';
         $bssid[11]=':';
         $bssid[14]=':';
+
+        $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
+        $essid = '';
+        $check = 0;
+        foreach($network as $wifi){
+            if($wifi['Address'] == $bssid){
+                $essid = $wifi['ESSID'];
+                $check = 1;
+                break;
+            }
+        }
+        if($check == 0){
+            return redirect()->route('setting.wifi_page');
+        }
+
+        return view('page.wifi_connect', [
+            'essid'=>$essid,
+            'bssid'=>$bssid
+        ]);
+
         dd($bssid);
     }
 }

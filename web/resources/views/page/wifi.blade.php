@@ -1,7 +1,46 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    @if(!$wifi)
+        <div class="row">
+            <div class="col-12" style="height:85vh;">
+                <div style=" width: 250px;
+                height: 250px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;">
+                    <div class="callout callout-danger">
+                        <center><i class="fas fa-wifi" style="font-size: 70pt;
+    color: #6c757d;"></i></center>
+
+                        <center><p>Wi-Fi отключен.</p>
+                            <p><a href="" class="btn btn-block bg-gradient-primary btn-lg" style="text-decoration: auto; color: #fff">Включить</a></p></center>
+                    </div>
+
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    @else
     <section class="content">
+
+        @if($wpa_supplicant)
+        <div class="callout callout-danger">
+            <h5>{{$wpa_supplicant['essid']}}</h5>
+
+            <p>{{$wpa_supplicant['bssid']}}</p>
+            <p><span class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) ПОДКЛЮЧЕНО @else Попытка подключения @endif</span></p>
+            <p>
+                <a href="" class="btn btn-block bg-gradient-warning" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
+                <a href="" class="btn btn-block bg-gradient-danger" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
+            </p>
+
+        </div>
+        @endif
 
         <!-- Default box -->
         <div class="card">
@@ -102,4 +141,5 @@
         <!-- /.card -->
 
     </section>
+    @endif
 @endsection

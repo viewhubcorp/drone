@@ -106,5 +106,8 @@ class Wifi {
         return shell_exec( 'sudo ifconfig wlan1 down' );
     }
 
+    public function wifi_reload(){
+        return shell_exec( 'sudo wpa_cli -i wlan1 reconfigure' );
+    }
 
 }
