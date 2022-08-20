@@ -83,7 +83,13 @@ class Wifi {
     }
 
     public function check_connection(){
-        return shell_exec( 'sudo iwgetid' );
+        #wlan1     ESSID:"Dikiy_derzkiy"
+        $ret = shell_exec( 'sudo iwgetid' );
+        if(empty($ret)){
+            return '';
+        }else{
+            return substr(explode('ESSID:"', $ret)[1],0,-1);
+        }
     }
 
     public function wifi_status(){
