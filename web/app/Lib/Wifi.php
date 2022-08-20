@@ -88,8 +88,7 @@ class Wifi {
         if(empty($ret)){
             return '';
         }else{
-            dd(rtrim(explode('ESSID:"', $ret)[1],"\"\n"));
-            return rtrim(explode('ESSID:"', $ret)[1],'"');
+            return rtrim(explode('ESSID:"', $ret)[1],"\"\n");
         }
     }
 
