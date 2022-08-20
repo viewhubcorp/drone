@@ -3,6 +3,7 @@
 @section('content')
 
     @if(!$wifi)
+        <br>
         <div class="row">
             <div class="col-12" style="height:85vh;">
                 <div style=" width: 250px;
@@ -18,7 +19,7 @@
     color: #6c757d;"></i></center>
 
                         <center><p>Wi-Fi отключен.</p>
-                            <p><a href="" class="btn btn-block bg-gradient-primary btn-lg" style="text-decoration: auto; color: #fff">Включить</a></p></center>
+                            <p><a href="" class="btn btn-block bg-gradient-primary btn-xs" style="text-decoration: auto; color: #fff">Включить</a></p></center>
                     </div>
 
                 </div>
