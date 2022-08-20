@@ -145,7 +145,7 @@
                         @endforeach
                     @else
                         <div class="row">
-                            <div class="col-12" style="height:60vh;">
+                            <div class="col-12" style="height:50vh;">
                                 <div style=" width: 250px;
                 height: 250px;
                 position: absolute;
@@ -160,12 +160,11 @@
 
                                         <center><p>Ожидайте Wi-Fi адапетр перезагружается.</p></center>
                                     </div>
-                                    <script type="text/javascript">
-                                        window.document.onload = function(e){
+                                    <script>
                                             setTimeout(function() {
-                                                location.reload();
+                                                window.location.href = window.location.href;
                                             }, 3000);
-                                        }
+
                                     </script>
                                 </div>
                                 <!-- /.card -->
