@@ -13,4 +13,8 @@ class Setting extends Controller
             'network'=>(new Wifi())->parseScanDev('wlan1')['wlan1']
         ]);
     }
+
+    public function wifi_bssid(Request $req, $bssid){
+        dd($bssid);
+    }
 }

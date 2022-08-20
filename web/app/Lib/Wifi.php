@@ -59,4 +59,32 @@ class Wifi {
     public function parseScanDev( $device ){
         return $this -> parseString( shell_exec( "sudo iwlist ".$device." scan" ));
     }
+
+    public function add_wpa_supplicant($essid, $bssid, $psk){
+        return shell_exec( 'sudo echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\nnetwork={\n\t#essid=\"'.$essid.'\"\n\tbssid=\"'.$bssid.'\"\n\psk=\"'.$psk.'\"\n}" > /etc/wpa_supplicant/wpa_supplicant.conf' );
+    }
+
+    public function reload_network(){
+        return shell_exec( 'sudo wpa_cli -i wlan1 reconfigure' );
+    }
+
+    public function check_connection(){
+        return shell_exec( 'sudo iwgetid' );
+    }
+
+    public function wifi_status(){
+        if (strpos(shell_exec( 'sudo ifconfig'), 'wlan1: ') === false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function wifi_on(){
+        return shell_exec( 'sudo ifconfig wlan1 up' );
+    }
+
+    public function wifi_off(){
+        return shell_exec( 'sudo ifconfig wlan1 down' );
+    }
 }

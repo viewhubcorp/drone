@@ -41,6 +41,7 @@ class Test extends Command
     }
 
     function iwlist_parser(){
+        $cmd = 'sudo echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\nnetwork={\n\tbssid=\"MySSID1\"\n\tssid=\"MySSID1\"\n}" > /etc/wpa_supplicant/wpa_supplicant.conf';
     }
 
     function parseString( $string ){
