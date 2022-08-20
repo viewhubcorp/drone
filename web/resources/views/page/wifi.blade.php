@@ -36,8 +36,8 @@
 
             <p><b class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) ПОДКЛЮЧЕНО @else Попытка подключения @endif</b></p>
             <p>
-                <a href="" class="btn btn-block bg-gradient-warning" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
-                <a href="" class="btn btn-block bg-gradient-danger" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
+                <a href="" class="btn btn-block bg-gradient-success" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
+
             </p>
 
         </div>
@@ -48,14 +48,9 @@
             <div class="card-header">
                 <h3 class="card-title">Доступные сети Wi-Fi</h3>
 
-{{--                <div class="card-tools">--}}
-{{--                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">--}}
-{{--                        <i class="fas fa-minus"></i>--}}
-{{--                    </button>--}}
-{{--                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">--}}
-{{--                        <i class="fas fa-times"></i>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
+                <div class="card-tools">
+                    <a href="" class="btn btn-block bg-gradient-danger" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
+                </div>
             </div>
             <div class="card-body p-0" style="display: block;">
                 <table class="table table-striped projects">
