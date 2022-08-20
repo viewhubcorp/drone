@@ -70,6 +70,12 @@ class Setting extends Controller
         return redirect()->route('setting.wifi_page');
     }
 
+    public function wifi_disconnect(Request $req){
+        (new Wifi())->clean_wpa_supplicant();
+        (new Wifi())->wifi_reload();
+        return redirect()->route('setting.wifi_page');
+    }
+
     public function wifi_on(Request $req){
         (new Wifi())->wifi_on();
         return redirect()->back();
