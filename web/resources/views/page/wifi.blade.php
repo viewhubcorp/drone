@@ -36,7 +36,7 @@
 
             <p><b class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) ПОДКЛЮЧЕНО @else Попытка подключения @endif</b></p>
             <p>
-                <a href="" class="btn btn-block bg-gradient-success" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
+                <a href="" class="btn btn-block btn-secondary" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
 
             </p>
 
