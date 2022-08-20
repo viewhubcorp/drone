@@ -18,24 +18,27 @@ class Setting extends Controller
         $check_connection = (new Wifi())->check_connection();
         $get_wpa_supplicant = (new Wifi())->get_wpa_supplicant();
         $network = (new Wifi())->parseScanDev('wlan1')['wlan1'];
-        foreach($network as $key=>$wifi){
-            if($get_wpa_supplicant && $get_wpa_supplicant['bssid'] == $wifi['Address']){
-                $network[$key]['now_connect'] = true;
-            }else{
-                $network[$key]['now_connect'] = false;
-            }
+        if(!$network) {
+            foreach ($network as $key => $wifi) {
+                if ($get_wpa_supplicant && $get_wpa_supplicant['bssid'] == $wifi['Address']) {
+                    $network[$key]['now_connect'] = true;
+                } else {
+                    $network[$key]['now_connect'] = false;
+                }
 
-            $check = \App\Wifi::where('bssid', $wifi['Address'])->first();
-            if(!is_null($check)){
-                $network[$key]['save_connect'] = true;
-            }else{
-                $network[$key]['save_connect'] = false;
-            }
+                $check = \App\Wifi::where('bssid', $wifi['Address'])->first();
+                if (!is_null($check)) {
+                    $network[$key]['save_connect'] = true;
+                } else {
+                    $network[$key]['save_connect'] = false;
+                }
 
-            if($wifi['ESSID'] == '' || $wifi['Encryption key'] != 'on'){
-                unset($network[$key]);
+                if ($wifi['ESSID'] == '' || $wifi['Encryption key'] != 'on') {
+                    unset($network[$key]);
+                }
             }
         }
+
         return view('page.wifi', [
             'main_menu'=>['setting', 'wifi'],
             'wpa_supplicant'=>$get_wpa_supplicant,
@@ -56,7 +59,7 @@ class Setting extends Controller
         if(!is_null($check)){
             (new Wifi())->add_wpa_supplicant($check->essid, $check->bssid, $check->psk);
             (new Wifi())->wifi_reload();
-            sleep(3);
+
             return redirect()->route('setting.wifi_page');
         }
 
@@ -92,7 +95,7 @@ class Setting extends Controller
 
         (new Wifi())->add_wpa_supplicant($req->get('essid'), $req->get('bssid'), $req->get('psk'));
         (new Wifi())->wifi_reload();
-        sleep(3);
+
         return redirect()->route('setting.wifi_page');
     }
 
@@ -125,7 +128,7 @@ class Setting extends Controller
 
     public function wifi_on(Request $req){
         (new Wifi())->wifi_on();
-        sleep(3);
+
         return redirect()->back();
     }
 
