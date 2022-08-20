@@ -61,7 +61,7 @@ class Wifi {
     }
 
     public function add_wpa_supplicant($essid, $bssid, $psk){
-        return shell_exec( 'echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\nnetwork={\n\t#|||canaveral_generate|||'.$essid.'|||next_io|||'.$bssid.'|||next_io|||'.$psk.'|||canaveral_generate|||\n\tbssid=\"'.$bssid.'\"\n\tpsk=\"'.$psk.'\"\n}" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf' );
+        return shell_exec( 'echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\ncountry=RU\n\nnetwork={\n\t#|||canaveral_generate|||'.$essid.'|||next_io|||'.$bssid.'|||next_io|||'.$psk.'|||canaveral_generate|||\n\tbssid='.$bssid.'\n\tpsk=\"'.$psk.'\"\n\tkey_mgmt=WPA-PSK\n}" | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf' );
     }
 
     public function clean_wpa_supplicant(){
