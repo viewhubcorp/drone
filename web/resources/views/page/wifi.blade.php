@@ -19,7 +19,7 @@
     color: #6c757d;"></i></center>
 
                         <center><p>Wi-Fi отключен.</p>
-                            <p><a href="" class="btn btn-block bg-gradient-primary btn-xs" style="text-decoration: auto; color: #fff">Включить</a></p></center>
+                            <p><a href="" class="btn btn-block bg-gradient-primary" style="text-decoration: auto; color: #fff">Включить</a></p></center>
                     </div>
 
                 </div>
@@ -50,7 +50,7 @@
                 <h3 class="card-title">Доступные сети Wi-Fi</h3>
 
                 <div class="card-tools">
-                    <a href="" class="btn btn-block bg-gradient-danger" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
+                    <a href="" class="btn btn-block bg-gradient-danger btn-xs" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
                 </div>
             </div>
             <div class="card-body p-0" style="display: block;">
