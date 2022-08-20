@@ -3,7 +3,7 @@
 @section('content')
 
     @if(!$wifi)
-        <br>
+
         <div class="row">
             <div class="col-12" style="height:85vh;">
                 <div style=" width: 250px;
@@ -19,7 +19,7 @@
     color: #6c757d;"></i></center>
 
                         <center><p>Wi-Fi отключен.</p>
-                            <p><a href="" class="btn btn-block bg-gradient-primary" style="text-decoration: auto; color: #fff">Включить</a></p></center>
+                            <p><a href="{{route('setting.wifi_on', [], false)}}" class="btn btn-block bg-gradient-primary" style="text-decoration: auto; color: #fff">Включить</a></p></center>
                     </div>
 
                 </div>
@@ -30,6 +30,7 @@
     <section class="content">
 
         @if($wpa_supplicant)
+            <br>
         <div class="callout callout-danger">
             <h5>Текущее подключение</h5>
 
@@ -50,7 +51,7 @@
                 <h3 class="card-title">Доступные сети Wi-Fi</h3>
 
                 <div class="card-tools">
-                    <a href="" class="btn btn-block bg-gradient-danger btn-xs" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
+                    <a href="{{route('setting.wifi_off', [], false)}}" class="btn btn-block bg-gradient-danger btn-xs" style="text-decoration: auto; color: #fff">Выключить Wi-Fi</a>
                 </div>
             </div>
             <div class="card-body p-0" style="display: block;">

@@ -69,4 +69,14 @@ class Setting extends Controller
 
         return redirect()->route('setting.wifi_page');
     }
+
+    public function wifi_on(Request $req){
+        (new Wifi())->wifi_on();
+        return redirect()->back();
+    }
+
+    public function wifi_off(Request $req){
+        (new Wifi())->wifi_off();
+        return redirect()->back();
+    }
 }
