@@ -37,7 +37,7 @@ class Test extends Command
      */
     public function handle()
     {
-        dd(explode('i', '22i3344i55'));
+        var_dump(rtrim(explode('ESSID:"', '#wlan1     ESSID:"Dikiy_derzkiy"')[1],'"'));
     }
 
     function iwlist_parser(){
