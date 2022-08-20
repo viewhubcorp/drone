@@ -97,6 +97,27 @@ class Setting extends Controller
         return redirect()->route('setting.wifi_page');
     }
 
+    public function wifi_delete(Request $req, $bssid){
+        $bssid[2]=':';
+        $bssid[5]=':';
+        $bssid[8]=':';
+        $bssid[11]=':';
+        $bssid[14]=':';
+
+        $wifi = \App\Wifi::where('bssid', $bssid)->first();
+        if(!is_null($wifi)){
+            $wifi->delete();
+        }
+
+        $get_wpa_supplicant = (new Wifi())->get_wpa_supplicant();
+        if($get_wpa_supplicant && $get_wpa_supplicant['bssid'] == $bssid){
+            (new Wifi())->clean_wpa_supplicant();
+            (new Wifi())->wifi_reload();
+        }
+
+        return redirect()->route('setting.wifi_page');
+    }
+
     public function wifi_on(Request $req){
         (new Wifi())->wifi_on();
         return redirect()->back();

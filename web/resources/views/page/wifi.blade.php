@@ -133,7 +133,7 @@
                                     @endif
 
                                     @if($wifi['save_connect'])
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" href="{{route('setting.wifi_delete', ['bssid'=>str_replace(":", "1", $wifi['Address']), false])}}">
                                         <i class="fas fa-trash">
                                         </i>
                                         Забыть
