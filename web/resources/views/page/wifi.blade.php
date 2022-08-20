@@ -33,6 +33,8 @@
             <h5>{{$wpa_supplicant['essid']}}</h5>
 
             <p>{{$wpa_supplicant['bssid']}}</p>
+            {{$check_connection}}
+
             <p><span class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) ПОДКЛЮЧЕНО @else Попытка подключения @endif</span></p>
             <p>
                 <a href="" class="btn btn-block bg-gradient-warning" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
