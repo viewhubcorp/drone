@@ -37,7 +37,7 @@ class Test extends Command
      */
     public function handle()
     {
-        dd($this->parseScanDev("wlan1"));
+        dd(explode('i', '22i3344i55'));
     }
 
     function iwlist_parser(){

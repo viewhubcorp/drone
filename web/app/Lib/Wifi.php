@@ -61,7 +61,25 @@ class Wifi {
     }
 
     public function add_wpa_supplicant($essid, $bssid, $psk){
-        return shell_exec( 'sudo echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\nnetwork={\n\t#essid=\"'.$essid.'\"\n\tbssid=\"'.$bssid.'\"\n\psk=\"'.$psk.'\"\n}" > /etc/wpa_supplicant/wpa_supplicant.conf' );
+        return shell_exec( 'sudo echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\nnetwork={\n\t#|||canaveral_generate|||'.$essid.'|||next_io|||'.$bssid.'|||next_io|||'.$psk.'|||canaveral_generate|||\n\tbssid=\"'.$bssid.'\"\n\tpsk=\"'.$psk.'\"\n}" > /etc/wpa_supplicant/wpa_supplicant.conf' );
+    }
+
+    public function clean_wpa_supplicant(){
+        return shell_exec( 'sudo echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1" > /etc/wpa_supplicant/wpa_supplicant.conf' );
+    }
+
+    public function get_wpa_supplicant(){
+        $exp = explode('|||canaveral_generate|||', shell_exec('sudo cat /etc/wpa_supplicant/wpa_supplicant.conf'));
+        if(count($exp) == 1){
+            return false;
+        }else{
+            $result = explode('|||next_io|||', $exp[1]);
+            return [
+                'essid'=>$result[0],
+                'bssid'=>$result[1],
+                'psk'=>$result[2]
+            ];
+        }
     }
 
     public function reload_network(){
@@ -87,4 +105,6 @@ class Wifi {
     public function wifi_off(){
         return shell_exec( 'sudo ifconfig wlan1 down' );
     }
+
+
 }
