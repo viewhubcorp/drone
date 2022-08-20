@@ -15,6 +15,11 @@ class Setting extends Controller
     }
 
     public function wifi_bssid(Request $req, $bssid){
+        $bssid[2]=':';
+        $bssid[5]=':';
+        $bssid[8]=':';
+        $bssid[11]=':';
+        $bssid[14]=':';
         dd($bssid);
     }
 }
