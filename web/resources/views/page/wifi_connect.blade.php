@@ -8,13 +8,14 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form>
+        <form method="post" action="{{route('setting.wifi_connect', [], false)}}">
             <div class="card-body">
                 @csrf
                 <input type="hidden" name="bssid" value="{{$bssid}}">
+                <input type="hidden" name="essid" value="{{$essid}}">
                 <div class="form-group">
                     <label for="exampleInputPassword1">Пароль</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+                    <input type="password" name="psk" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
                 </div>
             </div>
             <!-- /.card-body -->
