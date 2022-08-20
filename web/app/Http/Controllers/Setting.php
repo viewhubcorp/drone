@@ -56,6 +56,7 @@ class Setting extends Controller
         if(!is_null($check)){
             (new Wifi())->add_wpa_supplicant($check->essid, $check->bssid, $check->psk);
             (new Wifi())->wifi_reload();
+            sleep(3);
             return redirect()->route('setting.wifi_page');
         }
 
@@ -91,7 +92,7 @@ class Setting extends Controller
 
         (new Wifi())->add_wpa_supplicant($req->get('essid'), $req->get('bssid'), $req->get('psk'));
         (new Wifi())->wifi_reload();
-
+        sleep(3);
         return redirect()->route('setting.wifi_page');
     }
 
@@ -124,6 +125,7 @@ class Setting extends Controller
 
     public function wifi_on(Request $req){
         (new Wifi())->wifi_on();
+        sleep(3);
         return redirect()->back();
     }
 
