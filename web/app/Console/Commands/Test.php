@@ -37,7 +37,28 @@ class Test extends Command
      */
     public function handle()
     {
-        var_dump(rtrim(explode('ESSID:"', '#wlan1     ESSID:"Dikiy_derzkiy"')[1],'"'));
+        $arpa = shell_exec('arp -a -i wlan0');
+        $arpa = stristr($arpa, 'Type');
+        $arpa = preg_replace("/\s+/", " ", $arpa);
+        $arpat = explode(" ",$arpa);
+
+        list($k,$v) = each($arpat);
+        while (list($k, $v) = each($arpat)) {
+            $ippp = $v;
+            list($k, $v) = each($arpat);
+            $iddd = $v;
+            list($k, $v) = each($arpat);
+            $typer = $v;
+            if ($v && $iddd && ($typer != "invalid")) {
+                $arpa_new_status[$iddd]['ip'] = $ippp;
+            }
+        }
+        ksort($arpa_new_status);
+        reset($arpa_new_status);
+        foreach ($arpa_new_status as $mac => $values) {
+            $ips_array[] = array("mac" => $mac, "ip" => $values['ip']);
+        }
+        print_r($ips_array);
     }
 
     function iwlist_parser(){

@@ -315,7 +315,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
 
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link @if(isset($main_menu) && in_array('wifi', $main_menu)) active @endif">
+                                <a href="{{route('setting.wifi_page', [], false)}}" class="nav-link @if(isset($main_menu) && in_array('wifi', $main_menu)) active @endif">
                                     <i class="nav-icon fas fa-wifi"></i>
                                     <p>Подключение к Wi-Fi</p>
                                 </a>
