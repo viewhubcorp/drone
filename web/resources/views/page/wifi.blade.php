@@ -39,9 +39,15 @@
             <p><b class="text-muted">@if($wpa_supplicant['essid'] == $check_connection) <span class="badge badge-success">ПОДКЛЮЧЕНО</span> @else Попытка подключения @endif</b></p>
             <p>
                 <a href="{{route('setting.wifi_disconnect', [], false)}}" class="btn btn-block btn-secondary" style="text-decoration: auto; color: #fff">Отключиться от сети</a>
-
             </p>
+            @if($wpa_supplicant['essid'] != $check_connection && !$network)
+            <script>
+                setTimeout(function() {
+                    window.location.href = window.location.href;
+                }, 5000);
 
+            </script>
+            @endif
         </div>
         @endif
         @if($network)
