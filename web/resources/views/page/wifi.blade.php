@@ -44,7 +44,7 @@
 
         </div>
         @endif
-
+        @if($network)
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
@@ -78,7 +78,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if($network)
+
                         @foreach($network as $number => $wifi)
                             <tr>
                                 <td>
@@ -143,10 +143,17 @@
                                 </td>
                             </tr>
                         @endforeach
-                    @else
-                        <div class="row">
-                            <div class="col-12" style="height:50vh;">
-                                <div style=" width: 250px;
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+            @else
+                <div class="row">
+                    <div class="col-12" style="height:50vh;">
+                        <div style=" width: 250px;
                 height: 250px;
                 position: absolute;
                 top: 0;
@@ -154,30 +161,23 @@
                 bottom: 0;
                 left: 0;
                 margin: auto;">
-                                    <div class="callout callout-danger">
-                                        <center><i class="fas fa-wifi" style="font-size: 70pt;
+                            <div class="callout callout-danger">
+                                <center><i class="fas fa-wifi" style="font-size: 70pt;
     color: #6c757d;"></i></center>
 
-                                        <center><p>Ожидайте Wi-Fi адапетр перезагружается.</p></center>
-                                    </div>
-                                    <script>
-                                            setTimeout(function() {
-                                                window.location.href = window.location.href;
-                                            }, 3000);
-
-                                    </script>
-                                </div>
-                                <!-- /.card -->
+                                <center><p>Ожидайте Wi-Fi адапетр перезагружается.</p></center>
                             </div>
-                        </div>
-                    @endif
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+                            <script>
+                                setTimeout(function() {
+                                    window.location.href = window.location.href;
+                                }, 3000);
 
+                            </script>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            @endif
     </section>
     @endif
 @endsection
